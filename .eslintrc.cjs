@@ -1,13 +1,10 @@
 module.exports = {
     extends: [
-      // By extending from a plugin config, we can get recommended rules without having to add them manually.
       'eslint:recommended',
       'plugin:react/recommended',
       'plugin:import/recommended',
       'plugin:jsx-a11y/recommended',
       'plugin:@typescript-eslint/recommended',
-      // This disables the formatting rules in ESLint that Prettier is going to be responsible for handling.
-      // Make sure it's always the last config, so it gets the chance to override other configs.
       'eslint-config-prettier',
     ],
     "env": {
@@ -18,10 +15,8 @@ module.exports = {
     },
     settings: {
       react: {
-        // Tells eslint-plugin-react to automatically detect the version of React to use.
         version: 'detect',
       },
-      // Tells eslint how to resolve imports
       'import/resolver': {
         node: {
           paths: ['src'],
@@ -30,7 +25,30 @@ module.exports = {
       },
     },
     rules: {
-      // Add your own rules here to override ones from the extended configs.
+      "react/function-component-definition": ["warn", {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }],
+      "react/jsx-props-no-spreading": "off",
+      "import/no-extraneous-dependencies": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-use-before-define": "off",
+      "linebreak-style": 0,
+      "jsx-a11y/label-has-associated-control": [
+        2,
+        {
+          "assert": "htmlFor"
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "import/no-anonymous-default-export": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "no-plusplus": "off",
+      "no-console": ["warn", { "allow": ["warn", "error"] }],
+      "max-len": "warn",
+      "react/jsx-no-useless-fragment": "off",
+      "react/require-default-props": "off",
+      "no-underscore-dangle": "off"
     },
 };
   
